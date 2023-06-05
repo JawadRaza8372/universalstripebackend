@@ -54,7 +54,7 @@ app.get("/cancel", (req, res) => {
 app.get("/success", (req, res) => {
 	res.render(`success`);
 });
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
 	console.log(`Server is running: http://localhost:${port}`);
 });
