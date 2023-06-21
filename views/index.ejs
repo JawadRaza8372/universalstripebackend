@@ -12,15 +12,50 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				width: 100vw;
-				height: 100vh;
+				width: 95vw;
+				height: 95vh;
 				flex-direction: column;
+				overflow: hidden;
 			"
 		>
-			<h1 style="color: lightgrey">Please wait...</h1>
-			<form name="f1" method="post" action="/price_set">
+			<form
+				style="
+					width: 90%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+				"
+				name="f1"
+				method="post"
+				action="/price_set"
+			>
+				<h2 style="color: rgb(170, 168, 168); width: 95%; text-align: center">
+					Please click Next to <br />continue the payment process
+				</h2>
 				<input type="text" id="price" name="price" hidden />
-				<!-- <button type="submit">Pay</button> -->
+				<button
+					style="
+						width: 100%;
+						max-width: 120px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						background-color: #008cdd;
+						margin-top: 15px;
+						padding-top: 20px;
+						padding-bottom: 20px;
+						color: white;
+						font-size: 18px;
+						border: 0px solid red;
+						border-radius: 10px;
+						margin-left: auto;
+						margin-right: auto;
+					"
+					type="submit"
+				>
+					Next
+				</button>
 			</form>
 		</div>
 		<!-- <h1>Paypal</h1> -->
