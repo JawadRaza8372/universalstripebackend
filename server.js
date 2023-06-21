@@ -34,8 +34,8 @@ app.post("/price_set", async (req, res) => {
 				},
 			],
 
-			success_url: `/success`,
-			cancel_url: `/cancel`,
+			success_url: `${process.env.api_url}/success`,
+			cancel_url: `${process.env.api_url}/cancel`,
 		});
 		res.redirect(session.url);
 	} catch (e) {
