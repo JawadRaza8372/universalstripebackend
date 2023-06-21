@@ -38,8 +38,8 @@ app.get("/create-checkout-session", async (req, res) => {
 				},
 			],
 
-			success_url: `${process.env.CLIENT_URL}/success`,
-			cancel_url: `${process.env.CLIENT_URL}/cancel`,
+			success_url: `/success`,
+			cancel_url: `/cancel`,
 		});
 		res.redirect(session.url);
 		// res.json({ url: session.url });
