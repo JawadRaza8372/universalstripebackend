@@ -17,10 +17,6 @@ app.get("/", (req, res) => {
 });
 app.post("/price_set", async (req, res) => {
 	const { price } = req.body;
-	totalPrice = price;
-	res.redirect("/create-checkout-session");
-});
-app.get("/create-checkout-session", async (req, res) => {
 	try {
 		const session = await stripe.checkout.sessions.create({
 			payment_method_types: ["card"],
@@ -32,7 +28,7 @@ app.get("/create-checkout-session", async (req, res) => {
 						product_data: {
 							name: "Custom Services",
 						},
-						unit_amount: parseInt(totalPrice) * 100,
+						unit_amount: parseInt(price) * 100,
 					},
 					quantity: 1,
 				},
@@ -42,10 +38,8 @@ app.get("/create-checkout-session", async (req, res) => {
 			cancel_url: `/cancel`,
 		});
 		res.redirect(session.url);
-		// res.json({ url: session.url });
 	} catch (e) {
 		res.status(500).json({ error: e.message });
-		console.log(e.message);
 	}
 });
 app.get("/cancel", (req, res) => {
